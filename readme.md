@@ -3,7 +3,7 @@
 
 ![Status](https://img.shields.io/badge/status-Beta-yellowgreen)
 
-<h1 align="center">flowAutoFormattingPhoneInput</h1>
+<h1 align="center">FlowAutoFormattingPhoneInput</h1>
 
 <p align="center">Aura component for Flow screens that displays a phone number input field and auto-formats as you type.</p>
 
@@ -18,7 +18,7 @@ This component can be used on a Flow screen to collect a phone number:
 * Auto-formats the number as you type, so you don't have to add dashes
 * Implements the pattern for U.S. phone numbers, e.g. 555-555-5555
 * Input can be required or optional
-* Validates the entered value to enforce it as a required field, prevent incomplete or improperly formatted numbers, or both
+* Validates the pattern of an entered value to prevent submission of incomplete or improperly formatted phone numbers
 
 ## Install & Setup Instructions
 
@@ -51,8 +51,9 @@ A: No, sorry, not at the present time. Right now it is hard-coded to support a 1
 A: No, sorry, not at the present time. Right now it is hard-coded to support a 10-digit U.S. phone number with dashes (e.g. 555-555-5555).
 
 ## Caveats
-* <strong>Not intended for use with screen flows embedded in Visualforce</strong>. Not even tested.
+* Not intended for use with screen flows embedded in Visualforce. Not even tested.
 * Only supports a 10-digit U.S. phone number with dashes (e.g. 555-555-5555).
+* Multiple validation error messages may display below the input because validation is currently occuring twice:  once when you exit the input and again when you attempt to navigate in the flow.  I'm planning to reduce this to one set of error messages.
 
 ## Release History
 
