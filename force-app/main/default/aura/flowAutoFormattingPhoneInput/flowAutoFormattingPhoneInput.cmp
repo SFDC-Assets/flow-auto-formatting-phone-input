@@ -1,0 +1,70 @@
+<!--
+/*******************************************************************************************
+* @Name			flowPhoneInput
+* @Author		Mitch Lynch (mitch.lynch@salesforce.com)
+* @Date			11/03/2022
+* @Description	Displays a phone number input field for a Flow screen that auto-formats as you type.
+*******************************************************************************************/
+/* MODIFICATION LOG
+* 	Date			Developer			Story		Description
+*   11/03/2022      Mitch Lynch         n/a         Created base component.
+*******************************************************************************************/
+/* NOTES
+*
+*	This component formats the phone number for U.S. standards only:  XXX-XXX-XXXX
+*   It requires an area code and uses hyphens to separate the area code, prefix, and line number.
+*   This standardizes phone number formatting in the data so that it (a) is complete and (b) can be searched and queried without any special tricks.  This is key to my use case, which uses phone number for duplicate matching.
+*
+*   LWC resources:
+*     - Input component: https://developer.salesforce.com/docs/component-library/bundle/lightning:input
+*
+*	  - Auto-formatting based on some tips found here:
+*			- https://tomduffytech.com/how-to-format-phone-number-in-javascript/
+*			- https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/lightning_base_events.htm
+*
+*     - Validity logic mostly based on the Quick Lookup component from unofficialsf.com:
+*     		- https://unofficialsf.com/lookup/
+*			- https://github.com/alexed1/LightningFlowComponents/blob/master/flow_screen_components/quickLookup/force-app/main/default/aura/quickLookup/quickLookup.cmp
+*			- A version of this might be more robust for a component with multiple fields: https://www.lopau.com/how-to-validate-lightning-component-forms-in-flow-screens/
+*	  - Controller-side REGEX pattern
+*			- Pattern found here:  https://stackoverflow.com/questions/31143315/regex-phone-number-with-dashes
+*			- Validation based on some tips found here:  https://salesforce.stackexchange.com/questions/376326/regex-for-lightning-input-in-aura-component
+*
+*	TERMS AND CONDITIONS
+*	THIS APPLICATION IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+*	INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+*	DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+*	SPECIAL, EXEMPLARY, CONSEQUENTIAL OR SIMILAR DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+*	OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+*	WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+*	THIS APPLICATION, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*
+*	SUBJECT TO THE FOREGOING, THIS APPLICATION MAY BE FREELY REPRODUCED, DISTRIBUTED, TRANSMITTED, USED, MODIFIED, BUILT
+*	UPON, OR OTHERWISE EXPLOITED BY OR ON BEHALF OF SALESFORCE.COM OR ITS AFFILIATES, ANY CUSTOMER OR PARTNER OF
+*	SALESFORCE.COM OR ITS AFFILIATES, OR ANY DEVELOPER OF APPLICATIONS THAT INTERFACE WITH THE SALESFORCE.COM APPLICATION,
+*	FOR ANY PURPOSE, COMMERCIAL OR NON-COMMERCIAL, RELATED TO USE OF THE SALESFORCE.COM APPLICATION, AND IN ANY WAY,
+*	INCLUDING BY METHODS THAT HAVE NOT YET BEEN INVENTED OR CONCEIVED.
+*
+*******************************************************************************************/
+-->
+
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+    
+    <aura:attribute name="propertyLabel" type="String" default="Phone Number (555-555-5555)" />
+    <aura:attribute name="propertyPlaceholder" type="String" default="555-555-5555" />
+    <aura:attribute name="propertyRequired" type="Boolean" default="false" />
+    <aura:attribute name="propertyValue" type="String" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="validate" type="Aura.Action"/>
+    
+    <lightning:input  type="tel"
+                     id="{!globalId + '_myinput'}"
+                     label="{!v.propertyLabel}"
+                     placeholder="{!v.propertyPlaceholder}"
+                     value="{!v.propertyValue}"
+                     required="{!v.propertyRequired}"
+                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                     onchange="{!c.formatPhoneNumber}" />
+    
+</aura:component>
