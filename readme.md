@@ -56,7 +56,7 @@ A: No, sorry, not at the present time. Right now it is hard-coded to support a 1
 
 ## Release History
 
-<strong>1.0 Initial Release (11/03/2022)</strong> - Initial version of the component posted for populating Github and publish an unmanaged package.
+<strong>1.0 Initial Release (11/03/2022)</strong> - Initial version of the component posted for populating Github and publishing an unmanaged package.
 
 ## Maintainers
 
