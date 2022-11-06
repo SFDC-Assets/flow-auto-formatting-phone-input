@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <label>Remplissez ce champ.</label>
+        <name>Phone_Input_Empty_Error_Message</name>
+    </customLabels>
+    <customLabels>
+        <label>Votre entrée ne correspond pas au modèle autorisé.</label>
+        <name>Phone_Input_Pattern_Error_Message</name>
+    </customLabels>
+</Translations>
