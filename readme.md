@@ -24,7 +24,7 @@ This component can be used on a Flow screen to collect a phone number:
 
 **Please see the [Disclaimer](https://github.com/egyptguy/flowAutoFormattingPhoneInput#disclaimer)** (below)
 
-1. Install the unmanaged package:  **[https://login.salesforce.com/packaging/installPackage.apexp?p0=04t6g000008fjD3](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t6g000008fjD3)**
+1. Install the unmanaged package:  **[https://login.salesforce.com/packaging/installPackage.apexp?p0=04tDo000000DA7C](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tDo000000DA7C)**
 2. Add the Auto-Formatting Phone Input component to a screen element.
 3. Configure the component’s properties (see below).
 4. Rinse and repeat as needed.
