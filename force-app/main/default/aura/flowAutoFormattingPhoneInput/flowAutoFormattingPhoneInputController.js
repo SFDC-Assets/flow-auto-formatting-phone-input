@@ -1,14 +1,79 @@
 ({
     doInit : function(component, event, helper) {
-        helper.hlpCheckValidity(component, event);
+        component.set("v.validate", function () {
+            
+            // get requisite design attributes
+            var selectedValue = component.get("v.phoneValue");
+            var isRequired = component.get("v.phoneRequired");
+            
+            // set constants necessary for validating input value
+            const regex = /^\d{3}-\d{3}-\d{4}$/;
+            const errorPattern = component.get("v.patternErrorMessage");
+            const errorEmpty = component.get("v.emptyErrorMessage");
+            
+            if(isRequired == true) {
+                // input is required
+                if(!$A.util.isEmpty(selectedValue)) {
+                    // there's a value, but the pattern needs to be checked
+                    if(!regex.test(selectedValue)){
+                        // FAILED
+                        return {
+                            // doesn't match the regex pattern, not a valid value
+                            isValid: false,
+                            errorMessage: errorPattern
+                        };
+                    } else {
+                        // PASSED
+                        return {
+                            // matches the regex pattern
+                            isValid: true
+                        };
+                    }
+                }
+                else {
+                    // no value, set to invalid
+                    return {
+                        // doesn't match the regex pattern, not a valid value
+                        isValid: false,
+                        errorMessage: errorEmpty
+                    };
+                }
+            }
+            
+            else {
+                // input is NOT required
+                
+                if(!$A.util.isEmpty(selectedValue)) {
+                    // there's a value, but the pattern needs to be checked
+                    if(!regex.test(selectedValue)){
+                        // FAILED
+                        return {
+                            // doesn't match the regex pattern, not a valid value
+                            isValid: false,
+                            errorMessage: errorPattern
+                        };
+                    } else {
+                        // PASSED
+                        return {
+                            // matches the regex pattern
+                            isValid: true
+                        };
+                    }
+                }
+                else {
+                    // no value, set to valid (because it's not required)
+                    return {
+                        isValid: true
+                    };
+                }
+            }
+            
+        })
     },
     
     formatPhoneNumber : function(component) {
-        console.log("formatPhoneNumber triggered");
-        
         // get user's latest value in the phone input
-        let inputValue = component.get("v.propertyValue");
-        console.log('inputValue = ' + inputValue);
+        let inputValue = component.get("v.phoneValue");
         
         let updatedValue;
         
@@ -37,8 +102,6 @@
         }
         
         // Update the input with the formatted value of the phone number
-        console.log('updatedValue = ' + updatedValue);
-        component.set("v.propertyValue", updatedValue);
-        console.log('propertyValue attribute = ' + component.get("v.propertyValue"));
+        component.set("v.phoneValue", updatedValue);
 	}
 })

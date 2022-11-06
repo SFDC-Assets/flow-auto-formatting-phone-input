@@ -7,6 +7,8 @@
 *******************************************************************************************/
 /* MODIFICATION LOG
 * 	Date			Developer			Story		Description
+*   11/05/2022      Mitch Lynch         n/a         Removed standard validation occurring in the lightning:input to reduce the displayed error messages to a single instance. Added custom labels for error messages. General clean-up / removed instances of console.log() used for testing.
+*   11/04/2022      Mitch Lynch         n/a         Renamed design attributes - replacing 'property' prefix with 'phone'.
 *   11/03/2022      Mitch Lynch         n/a         Created base component.
 *******************************************************************************************/
 /* NOTES
@@ -50,21 +52,23 @@
 
 <aura:component implements="lightning:availableForFlowScreens" access="global">
     
-    <aura:attribute name="propertyLabel" type="String" default="Phone Number (555-555-5555)" />
-    <aura:attribute name="propertyPlaceholder" type="String" default="555-555-5555" />
-    <aura:attribute name="propertyRequired" type="Boolean" default="false" />
-    <aura:attribute name="propertyValue" type="String" />
+    <aura:attribute name="phoneLabel" type="String" default="Phone Number (555-555-5555)" />
+    <aura:attribute name="phonePlaceholder" type="String" default="555-555-5555" />
+    <aura:attribute name="phoneRequired" type="Boolean" default="false" />
+    <aura:attribute name="phoneValue" type="String" />
+    
+    <aura:attribute name="patternErrorMessage" type="String" default="{!$Label.c.Phone_Input_Pattern_Error_Message}" />
+    <aura:attribute name="emptyErrorMessage" type="String" default="{!$Label.c.Phone_Input_Empty_Error_Message}" />
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="validate" type="Aura.Action"/>
     
+    <!-- Phone input displayed in component -->
     <lightning:input  type="tel"
-                     id="{!globalId + '_myinput'}"
-                     label="{!v.propertyLabel}"
-                     placeholder="{!v.propertyPlaceholder}"
-                     value="{!v.propertyValue}"
-                     required="{!v.propertyRequired}"
-                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                     aura:id="{!globalId + '_myinput'}"
+                     label="{!v.phoneLabel}"
+                     placeholder="{!v.phonePlaceholder}"
+                     value="{!v.phoneValue}"
                      onchange="{!c.formatPhoneNumber}" />
     
 </aura:component>

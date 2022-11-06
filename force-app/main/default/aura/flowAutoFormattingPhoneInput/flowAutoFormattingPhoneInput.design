@@ -1,6 +1,6 @@
 <design:component label="Auto-Formatting Phone Input">
-	<design:attribute name="propertyLabel" label="Label" />
-    <design:attribute name="propertyPlaceholder" label="Placeholder Text" />
-	<design:attribute name="propertyRequired" label="Required?" />
-    <design:attribute name="propertyValue" label="Value" />
+	<design:attribute name="phoneLabel" label="Label" />
+    <design:attribute name="phonePlaceholder" label="Placeholder Text" />
+	<design:attribute name="phoneRequired" label="Required?" />
+    <design:attribute name="phoneValue" label="Value" />
 </design:component>
