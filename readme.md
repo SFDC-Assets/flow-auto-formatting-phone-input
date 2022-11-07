@@ -25,7 +25,7 @@ This component can be used on a Flow screen to collect a phone number:
 
 **Please see the [Disclaimer](https://github.com/SFDC-Assets/FlowAutoFormattingPhoneInput#disclaimer)** (below)
 
-1. Install the unmanaged package:  **[https://login.salesforce.com/packaging/installPackage.apexp?p0=04tDo000000DA7C](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tDo000000DA7C)**
+1. Install the unmanaged package for all users:  **[https://login.salesforce.com/packaging/installPackage.apexp?p0=04tDo000000DA7C](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tDo000000DA7C)**
 2. Add the Auto-Formatting Phone Input component to a screen element.
 3. Configure the component’s properties (see below).
 4. Rinse and repeat as needed.
@@ -43,7 +43,7 @@ When you add this component to a Flow screen, there are a few properties to conf
 
 ### Custom Labels Available for Editing/Translation
 
-On-screen validation/error messsages use Custom Labels so that you can edit them for more discreet guidance or translate them into languages other than English. I include basic translations for English, French, German, Italian, Spanish, and Spanish (Mexican), but my apologies if I've butchered your mother tongue (start a [discussion](https://github.com/SFDC-Assets/FlowAutoFormattingPhoneInput/discussions) if you have better translations for these labels or if you want me to add support for your language):
+On-screen validation/error messages use Custom Labels so that you can edit them for more discreet guidance or translate them into languages other than English. I include basic translations for English, French, German, Italian, Spanish, and Spanish (Mexican), but my apologies if I've butchered your mother tongue (start a [discussion](https://github.com/SFDC-Assets/FlowAutoFormattingPhoneInput/discussions) if you have better translations for these labels or if you want me to add support for your language):
 
 * **Phone_Input_Empty_Error_Message** – Error message that displays below the phone input when it is a required field but the value was submitted as empty.
 * **Phone_Input_Pattern_Error_Message** – Error messsage that displays when the submitted value doesn't adhere to the valid pattern (e.g. 555-555-5555).
