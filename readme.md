@@ -46,7 +46,7 @@ When you add this component to a Flow screen, there are a few properties to conf
 On-screen validation/error messages use Custom Labels so that you can edit them for more discreet guidance or translate them into languages other than English. I include basic translations for English, French, German, Italian, Spanish, and Spanish (Mexican), but my apologies if I've butchered your mother tongue (start a [discussion](https://github.com/SFDC-Assets/FlowAutoFormattingPhoneInput/discussions) if you have better translations for these labels or if you want me to add support for your language):
 
 * **Phone_Input_Empty_Error_Message** – Error message that displays below the phone input when it is a required field but the value was submitted as empty.
-* **Phone_Input_Pattern_Error_Message** – Error messsage that displays when the submitted value doesn't adhere to the valid pattern (e.g. 555-555-5555).
+* **Phone_Input_Pattern_Error_Message** – Error message that displays when the submitted value doesn't adhere to the valid pattern (e.g. 555-555-5555).
 
 Once you have enabled Translation Workbench and added supported languages in your org, you can create translations that will override the default English values (from Setup, visit Custom Labels; see [this help article](https://help.salesforce.com/s/articleView?id=sf.cl_translate_edit.htm&type=5)).
 
