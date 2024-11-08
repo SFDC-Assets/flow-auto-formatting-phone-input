@@ -79,7 +79,7 @@ A: Yes! See the section (above) about the Custom Labels available for translatio
 
 ## Maintainers
 
-<strong>[Mitch Lynch (egyptguy)](https://github.com/egyptguy)</strong>
+<strong>[Mitch Lynch (egyptguy) - Distinguished Solution Engineer, Salesforce](https://github.com/egyptguy)</strong>
 
 ## Disclaimer
 
