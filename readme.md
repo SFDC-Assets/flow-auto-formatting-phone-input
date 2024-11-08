@@ -71,6 +71,8 @@ A: Yes! See the section (above) about the Custom Labels available for translatio
 
 ## Release History
 
+<strong>11/08/2024</strong> - v1.01 publicly released.
+
 <strong>1.01 Initial Release w/Improvements (11/06/2022)</strong> - Minor improvements and clean-up; use of custom labels for error messages; package now comes from a dedicated org.
 
 <strong>1.0 Initial Release (11/03/2022)</strong> - Initial version of the component posted for populating Github and publishing an unmanaged package.
